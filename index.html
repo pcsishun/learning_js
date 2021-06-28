@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h5 id="title"></h5>
+    <hr>
+    <h5>const Let var</h5>
+    <div id="show_let"></div>
+    <p>var title = "Learning JS"
+        document.getElementById('title').innerHTML = title;</p>
+    <br>
+
+    <div id="show_const"></div>
+    <p>let price = 20; // ประกาศตัวแรกเป็น 20
+        price = 30; // ต่อมาเปลี่ยนเป็น 30 
+        
+        document.getElementById('show_let').innerHTML = price;</p>
+    <br>
+
+    <div id="show_object"></div>
+    <p>const price2 = 20; // สร้างตัวแปร const ขึ้นมา 
+        try{ 
+            price2 = 30; // จากนั้นใช้ try เพื่อให้ลองทำการ เปลี่ยน price2 เป็น 30 
+        }
+        catch(err){ // หากมี error ให้เก็บค่าไว้ในตัวแปร err 
+            console.log(err);
+            document.getElementById('show_const').innerHTML = err.message; // จากนั้นให้เเสดงค่าที่ error โดยเข้าไปใน error เเละ ทำการดึง msg ที่ error ออกมา
+        }</p>
+    <br>
+
+    <h5>Function vs Arrow function</h5>
+    <p>function ทั่วไป </p>
+    <div id="function_nor"></div>
+    <p> 
+        function calculate_a(a, b){
+            let sumation = a + b;
+            return (sumation);
+        }
+        
+        document.getElementById("function_nor").innerHTML = calculate_a(20, 30);</p>
+    <br>
+
+    <p>Arrow function</p>
+    <div id="function_arrow"></div>
+    <p> 
+        const arrow_function = (a, b) => a+b;
+        let reult = arrow_function(20, 30)
+        document.getElementById("function_arrow").innerHTML = reult;</p>
+    <br>
+
+    <p>Object with Arrow function</p>
+    <div id="object_function_arrow"></div>
+    <div id="object_function_arrow2"></div>
+    <p> 
+        const object_with_arrow = name => ({name:name, city:"CNX"});
+        let result = object_with_arrow("Earth");
+        document.getElementById("object_function_arrow").innerHTML = result;</p>
+    <br>
+
+    <h5>Default Parameter</h5>
+    <!-- ตัวสคิปให้อยู่ล่างสุดของ tag ที่ต้องการ run ผ่านตัว js  -->
+    <script src="index.js"></script>
+    
+</body>
+</html> 
