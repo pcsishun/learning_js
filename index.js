@@ -138,6 +138,89 @@ const lastname = "Chaiyaworrakamol"
 let fullname = `Template literals = my first name is ${firstname} and my lastname is ${lastname}`;
 document.getElementById("Template-Literals").innerHTML = fullname;
 
-//************** Destructuring  **************//
+//************** Destructuring object  **************//
+
+// เเบบเก่า
+let person_detail = {
+    name: "Earth",
+    skill: "Python, php, js"
+}
+
+let name_c = person_detail.name;
+let skill = person_detail.skill;
+let element_x = `My name is : ${name_c} and skill i have is ${skill}`;
+
+document.getElementById("default_destructuring").innerHTML = element_x;
+
+// เเบบใหม่ 
+
+let player_game = {
+    name_g: "Earth",
+    skill_g: "Dota, csgo, lol"
+};
+
+let {name_g, skill_g}= player_game;
+let full_name = `My name is ${name_g} my game skill is ${skill_g}`;
+
+document.getElementById("destructuring").innerHTML = full_name;
+//  การใช้งานรูปแบบของ destructuring เป็นการลดขนาดลงของการเรียกใช้ ค่าใน array ออกมา 
+
+//************** Computed Property Name **************// 
+// ข้อดีคือสามารถปรับเเก้ไขข้อมูลได้ภายใน object เลย 
+
+let name_menu = "Cake";
+let food = {
+    [name_menu]:name_menu+"Banana",
+    price: 85
+}
+
+let result_computed = `${food.Cake} price: ${food.price}`;
+document.getElementById("Computed").innerHTML = result_computed;
+
+//************** Shorthand Property & Method **************// 
+
+let name_s = "Earth"; 
+let skill_s = "Programer";
+
+let user = {
+    name_s, 
+    skill_s
+};
+
+let result_shorthand1 = `${user.name_s} and skill is: ${user.skill_s}`;
+document.getElementById("shorthand1").innerHTML = result_shorthand1;
+
+// นอกเหนือจากนั้นยังสามารถใช้ ร่วมกับ function ได้ด้วยเช่นกัน 
+
+function create_name_skill(name, skill){
+    return{
+        name,
+        skill
+    }
+};
+
+let result_create_name_skill = create_name_skill(name_s, skill_s);
+let result_shorthand2 = `function:: ${result_create_name_skill.name} and skill is : ${result_create_name_skill.skill}`;
+
+document.getElementById("shorthand2").innerHTML = result_shorthand2;
+
+//************** Class JavaScript ES6 ************** //
+// รูปเเบบการเขียน js เเบบเดิม 
+
+function User_main(name, age){ // class ต้องเริ่มต้นด้วยตัวพิมพ์ใหญ่ 
+    this.name = name // this.name -> เป็นการระบุถึง file property
+    this.age = age
+}
+
+User_main.prototype.SayHi = function(){
+    console.log("Hello = "+this.name + "Age = " +this.age);
+}
+
+let user1 = new User_main("Earth", 26);
+user2.SayHi();
+
+
+
+
 
 

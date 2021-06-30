@@ -146,6 +146,86 @@
         </p>
     </div>
 
+    <h5>Destructuring object</h5>
+    <div class = "container">
+        <p>default destructuring</p>
+        <div id = "default_destructuring"></div>
+        <br>
+        <p>
+            let person_detail = {
+                name: "Earth",
+                skill: "Python, php, js"
+            }
+            
+            let name_c = person_detail.name;
+            let skill = person_detail.skill;
+            
+            let element_x = `My name is : ${name_c} and skill i have is ${skill}`;
+            
+            document.getElementById("default_destructuring").innerHTML = element_x;            
+        </p>
+        <br>
+        <p>Destructuring</p>
+        <div id="destructuring"></div>
+        <p>let player_game = {
+            name_g: "Earth",
+            skill_g: "Dota, csgo, lol"
+        };
+        
+        let {name_g, skill_g}= player_game;
+        
+        let full_name = `My name is ${name_g} my game skill is ${skill_g}`;
+        
+        document.getElementById("destructuring").innerHTML = full_name;</p>
+    </div>
+    <br>
+    <h5>Computed Property Name</h5>
+    <div class = "container">
+        <div id="Computed"></div>
+        <p>
+
+        let name_menu = "Cake";
+        let food = {
+            [name_menu]:name_menu+"Banana",
+            price: 85
+        }
+
+        let result_computed = `${food.Cake} price: ${food.price}`;
+
+        document.getElementById("Computed").innerHTML = result_computed;
+
+        </p>
+    </div>
+    <br>
+    <h5>Shorthand Property & Method</h5>
+    <div class = "container">
+        <p>Json method:</p>
+        <div id = "shorthand1"></div>
+        <p>let name_s = "Earth"; 
+            let skill_s = "Programer";
+            
+            let user = {
+                name_s, 
+                skill_s
+            };
+            
+            let result_shorthand1 = `${user.name_s} and skill is: ${user.skill_s}`;
+            
+            document.getElementById("shorthand1").innerHTML = result_shorthand1;</p>
+        <p>Function method:</p>
+        <div id = "shorthand2"></div>
+        <p>function create_name_skill(name, skill){
+            return{
+                name,
+                skill
+            }
+        };
+        
+        let result_create_name_skill = create_name_skill(name_s, skill_s);
+        let result_shorthand2 = `function:: ${result_create_name_skill.name} and skill is : ${result_create_name_skill.skill}`;
+        document.getElementById("shorthand2").innerHTML = result_shorthand2;</p>
+    </div>
+
 
     <!-- ตัวสคิปให้อยู่ล่างสุดของ tag ที่ต้องการ run ผ่านตัว js -->
     <script src="index.js"></script>
