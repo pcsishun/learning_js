@@ -1,72 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+
     <title>Document</title>
 </head>
+
 <body>
     <h5 id="title"></h5>
     <hr>
     <h5>const Let var</h5>
-    <div id="show_let"></div>
-    <p>var title = "Learning JS"
-        document.getElementById('title').innerHTML = title;</p>
-    <br>
+    <div class = "container">
+        <div id="show_let"></div>
+        <p>var title = "Learning JS" document.getElementById('title').innerHTML = title;</p>
+        <br>
+    </div>
 
-    <div id="show_const"></div>
-    <p>let price = 20; // ประกาศตัวแรกเป็น 20
-        price = 30; // ต่อมาเปลี่ยนเป็น 30 
-        
-        document.getElementById('show_let').innerHTML = price;</p>
-    <br>
+    <div class = "container">
+        <div id="show_const"></div>
+        <p>let price = 20; // ประกาศตัวแรกเป็น 20 price = 30; // ต่อมาเปลี่ยนเป็น 30 document.getElementById('show_let').innerHTML = price;</p>
+        <br>
+    </div>
 
-    <div id="show_object"></div>
-    <p>const price2 = 20; // สร้างตัวแปร const ขึ้นมา 
-        try{ 
-            price2 = 30; // จากนั้นใช้ try เพื่อให้ลองทำการ เปลี่ยน price2 เป็น 30 
-        }
-        catch(err){ // หากมี error ให้เก็บค่าไว้ในตัวแปร err 
-            console.log(err);
-            document.getElementById('show_const').innerHTML = err.message; // จากนั้นให้เเสดงค่าที่ error โดยเข้าไปใน error เเละ ทำการดึง msg ที่ error ออกมา
-        }</p>
-    <br>
+    <div class ="container">
+        <div id="show_object"></div>
+        <p>const price2 = 20; // สร้างตัวแปร const ขึ้นมา try{ price2 = 30; // จากนั้นใช้ try เพื่อให้ลองทำการ เปลี่ยน price2 เป็น 30 } catch(err){ // หากมี error ให้เก็บค่าไว้ในตัวแปร err console.log(err); document.getElementById('show_const').innerHTML = err.message;
+            // จากนั้นให้เเสดงค่าที่ error โดยเข้าไปใน error เเละ ทำการดึง msg ที่ error ออกมา }
+        </p>
+        <br>
+    </div>
+
 
     <h5>Function vs Arrow function</h5>
-    <p>function ทั่วไป </p>
-    <div id="function_nor"></div>
-    <p> 
-        function calculate_a(a, b){
-            let sumation = a + b;
-            return (sumation);
-        }
-        
-        document.getElementById("function_nor").innerHTML = calculate_a(20, 30);</p>
-    <br>
+    <div class = "container">
+        <p>function ทั่วไป </p>
+        <div id="function_nor"></div>
+        <p>
+            function calculate_a(a, b){ let sumation = a + b; return (sumation); } document.getElementById("function_nor").innerHTML = calculate_a(20, 30);</p>
+        <br>
+    </div>
 
     <p>Arrow function</p>
-    <div id="function_arrow"></div>
-    <p> 
-        const arrow_function = (a, b) => a+b;
-        let reult = arrow_function(20, 30)
-        document.getElementById("function_arrow").innerHTML = reult;</p>
-    <br>
+    <div class=  "container">
+        <div id="function_arrow"></div>
+        <p>
+            const arrow_function = (a, b) => a+b; let reult = arrow_function(20, 30) document.getElementById("function_arrow").innerHTML = reult;</p>
+        <br>
+    </div>
 
     <p>Object with Arrow function</p>
-    <div id="object_function_arrow"></div>
-    <div id="object_function_arrow2"></div>
-    <p> 
-        const object_with_arrow = name => ({name:name, city:"CNX"});
-        let result = object_with_arrow("Earth");
-        document.getElementById("object_function_arrow").innerHTML = result;</p>
-    <br>
+    <div class = "container">
+        <div id="object_function_arrow"></div>
+        <div id="object_function_arrow2"></div>
+        <p>
+            const object_with_arrow = name => ({name:name, city:"CNX"}); let result = object_with_arrow("Earth"); document.getElementById("object_function_arrow").innerHTML = result;</p>
+        <br>
+    </div>
 
     <h5>Default Parameter</h5>
-    <!-- ตัวสคิปให้อยู่ล่างสุดของ tag ที่ต้องการ run ผ่านตัว js  -->
-    <script src="index.js"></script>
+    <div class ="container">
+        <div id="default_param"></div>
+        <p>
+            function default_parameter(x, y) { 
+                if (y === undefined) { 
+                    y = 0; let result = x + y; return (result); 
+                } else { 
+                    let result = x + y; return (result); 
+                } 
+            } 
+            let first_x = 20; let fitst_y; let result_function = default_parameter(first_x, fitst_y); 
+            document.getElementById("default_param").innerHTML= result_function;
+        </p>
+        <br>
+    </div>
+
+
+    <h5>Rest operator</h5>
+    <div class= "container">
+        <p>Not use rest operator</p>
+        <div id="rest_operator"></div>
+        <p>
+            function rest_function(x, y, z) {
+            let sumation = x + y + z; return (sumation); 
+            const number_array = [5, 10, 15]; 
+            //console.log(rest_function(...number_array)); 
+            try { // not use rest operator it will get error 
+                console.log(rest_function(number_array));
+            } catch (err) { 
+                console.log(err); 
+            }
+        </p>
+        <br>
+        <p>use rest operator</p>
+        <div id="rest_operator2"></div>
+        <p>try {
+            console.log(rest_function(...number_array));
+            let result_rest2 = rest_function(...number_array);
+            document.getElementById("rest_operator2").innerHTML = result_rest2;
+        } catch (err) {
+            console.log(err);
+        }
+        </p>
+    </div>
+
+    <h5>Speard operator</h5>
+    <div class ="container">
+        <p>Array A is:</p>
+        <p id="Speard-array1"></p>
+        <p>Arrat B is:</p>
+        <p id="Speard-array2"></p>
+        <p>Use push speard operator</p>
+        <div id = "Speard-operator"></div>
+        <p>
+            let array_a = [1,2,3];
+            let array_b = [4,5,6];
+
+            array_a.push(...array_b);
+            document.getElementById("Speard-operator").innerHTML = array_a;
+        </p>
+        <div id ="Speard-operator2"></div>
+        <p>
+            let array_a = [1,2,3];
+            let array_b = [4,5,6];
+
+            array_c = [...array_a, ...array_b];
+            document.getElementById("Speard-operator2").innerHTML = array_c;
+        </p>
+        <br>
+    </div>
+
+    <h5>Template Literals</h5>
+    <div class = "container">
+        <div id = "Template-Literals"></div>
+        <br>
+        <p>
+            const firstname = "Sorrakrit";
+            const lastname = "Chaiyaworrakamol"
     
+            let fullname = `Template literals = my first name is ${firstname} and my lastname is ${lastname}`;
+            document.getElementById("Template-Literals").innerHTML = fullname;
+        </p>
+    </div>
+
+
+    <!-- ตัวสคิปให้อยู่ล่างสุดของ tag ที่ต้องการ run ผ่านตัว js -->
+    <script src="index.js"></script>
+
 </body>
-</html> 
+
+</html>
