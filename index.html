@@ -12,6 +12,7 @@
 
 <body>
     <h5 id="title"></h5>
+    <a class="btn btn-primary" href="https://www.youtube.com/watch?v=4bKaLDwCVP4">Ref</a>
     <hr>
     <h5>const Let var</h5>
     <div class = "container">
@@ -225,8 +226,183 @@
         let result_shorthand2 = `function:: ${result_create_name_skill.name} and skill is : ${result_create_name_skill.skill}`;
         document.getElementById("shorthand2").innerHTML = result_shorthand2;</p>
     </div>
+    <h5>Class JavaScript ES6</h5>
+    <div class="container">
+        <p>รูปแบบการเขียน class แบบเก่า</p>
+        <div id="old-class-js"></div>
+        <p>
+            function User_main(name, age){ // class ต้องเริ่มต้นด้วยตัวพิมพ์ใหญ่ 
+            this.name = name // this.name -> เป็นการระบุถึง file property
+            this.age = age
+        }
+        
+        User_main.prototype.SayHi = function(){
+            console.log("Hello = "+this.name + "Age = " +this.age);
+            let out_result_e = "Hello = :"+ this.name + "Age = " +this.age;
+            return document.getElementById("old-class-js").innerHTML = out_result_e;
+        }
+        
+        let user1 = new User_main("Earth", 26);
+        user1.SayHi();
+        
+        </p>
+        <br>
+        <p>รูปแบบการเขียน class ES6</p>
+        <div id="new-class-js"></div>
+        <p>
+        class User_main_2{
+            constructor(name, age){
+                this.name = name,
+                this.age = age
+            }
+            SayHi(){
+                let out_n_result = "Hello ="+this.name+" my age is = "+this.age;
+                document.getElementById("new-class-js").innerHTML = out_n_result;
+            }
+        }
+        
+        let user2 = new User_main_2("Earth", 26);
+        user2.SayHi();
+        </p>
+    </div>
+    <h5>Inheritance (การสืบทอดคุณสมบัติ)</h5>
+    <div class = "container">
+        <p>Inheritance</p>
+        <div id="Inheritance-admin"></div>
+        <div id="Inheritance"></div>
+        <br>
+        <p>
+            class Admin{
+                constructor(){
+                    console.log("Admin constructor is called.")
+                }
+                isPermission(){
+                    document.getElementById("Inheritance-admin").innerHTML = "You are login as Admin."
+                } 
+            }
+            
+            // การสืบทอดของข้อมูลระหว่าง class จะทำการใช้ extends 
+            class User extends Admin{ // การเขียนลักษณะนี้จะทำให้ Class user ไปดึงคุณสมบัติของ class Admin
+                constructor(name_user, age_user){
+                    super(); // operator super จะทำการเรียกใช้คำสั่งของ class เเม่ที่เราทำการ extends เข้ามา (คือ class Admin)
+                    this.name_user = name_user, // ค่าตัวนี้เป็นคุณสมบัติใน class ของ user อยู่เเล้ว
+                    this.age_user = age_user // ค่าตัวนี้เป็นคุณสมบัติใน class ของ user อยู่เเล้ว
+                }
+                welcomeBack(){
+                    let result_inheritance = "Welcome back mr "+this.name_user+" now you are "+this.age_user;
+                    document.getElementById("Inheritance").innerHTML = result_inheritance;
+                }
+            
+            }
+            
+            let show_result_con = new User("Sorrakrit", 26);
+            show_result_con.isPermission(); // สังเกตุว่าการใช้ super เรียก คุณสมบัติระหว่าง class Admin เเละ class User เป็นผลให้ เราสามารถใช้งาน method ใน class Admin ได้
+            show_result_con.welcomeBack();
+        </p>
+        
+    </div>
+    <hr>
+    <h5>Basic js for front-end</h5>
+    <a class="btn btn-primary" href="https://www.youtube.com/watch?v=AbjY-ajKgSI">Ref</a>
+    <br>
+    <p>Alert</p>
+    <div class="container">
+        <a href="/alert_tag.html" class="btn btn-primary">go to alert page</a>
+    </div>
+    <br>
+    <br>
+    <h5>Array with loop (summation, mean: with class math call method sum)</h5>
+    <div class ="container">
+        <div id="summation_loop"></div>
+        <div id="avg_class_method"></div>
+        <p>
+            let array_aa = [1,2,3,4,5,6,7,8,9,10,11,12,19];
 
+            class Math_sum{
+                constructor(array_in){
+                    console.log("math function is running");
+                    this.array_in = array_in;
+                }
+                sum_loop(){
+                    let array_in = this.array_in;
+                    let sum_array = 0;
+                    for (let i = 0; i < array_in.length; i++){
+                        sum_array += array_in[i]
+                    }
+                    return sum_array;
+                }
+            
+                avg_func(){
+                    let summation_array = this.sum_loop();
+                    let count_e = this.array_in.length;
+                    let average = summation_array / count_e;
+                    let average_deci = average.toFixed(3)
+                    return average_deci;
+                }
+            }
+            
+            let result_array_forLoop = new Math_sum(array_aa);
+            let sum_result = `this is calulate by math class with sum function = ${result_array_forLoop.sum_loop()}`;
+            let avg_result = `this is calulate by math class with avg function = ${result_array_forLoop.avg_func()}`;
+            document.getElementById("summation_loop").innerHTML= sum_result;
+            document.getElementById("avg_class_method").innerHTML = avg_result;    
+        </p>
+    </div>
+    <br>
+    <h5>Ternary Operator</h5>
+    <div class="container">
+        <p>if else operator</p>
+        <div id="if-else-Operator"></div>
+        <p>
+            let avg_resilt_2 = result_array_forLoop.avg_func(); 
+            let show_the_object;
 
+            if (avg_resilt_2 > 8){
+                show_the_object = "it more than 8";
+                document.getElementById("if-else-Operator").innerHTML = show_the_object;
+            }else{
+                show_the_object = "it less than 8";
+                document.getElementById("if-else-Operator").innerHTML = show_the_object;
+            }
+        </p>
+        <br>
+        <p>ternary operator</p>
+        <div id="Ternary-Operator"></div>
+        <p>
+            let avg_resilt_2 = result_array_forLoop.avg_func(); 
+            let show_the_object_2;
+            show_the_object_2 = avg_resilt_2 >7 ? "it more than 7" : "it less than 7";
+            document.getElementById("Ternary-Operator").innerHTML = show_the_object_2; 
+        </p>
+    </div>
+    <h5>Switch Case Operator:</h5>
+    <div class ="container">
+        <div id="switch-case"></div>
+        <p>
+            switch (true){
+                case (avg_resilt_2 < 0):
+                    // console.log(avg_resilt_2);
+                    document.getElementById("switch-case").innerHTML = "your average below 0";
+                    break;
+                case (avg_resilt_2 >= 0 && avg_resilt_2 <= 10):
+                    // console.log(avg_resilt_2);
+                    document.getElementById("switch-case").innerHTML = "your are in average";
+                    break;
+                case (avg_resilt_2 > 10):
+                    // console.log(avg_resilt_2);
+                    document.getElementById("switch-case").innerHTML = "you are more than average";
+                    break;
+            }
+        </p>
+    </div>
+    <br>
+    <h5>While loop</h5>
+    <div class= "container">
+        <div id="while-loop"></div>
+        <p>
+            
+        </p>
+    </div>
     <!-- ตัวสคิปให้อยู่ล่างสุดของ tag ที่ต้องการ run ผ่านตัว js -->
     <script src="index.js"></script>
 

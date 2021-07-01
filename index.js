@@ -214,13 +214,157 @@ function User_main(name, age){ // class ต้องเริ่มต้นด�
 
 User_main.prototype.SayHi = function(){
     console.log("Hello = "+this.name + "Age = " +this.age);
+    let out_result_e = "Hello = :"+ this.name + "Age = " +this.age;
+    return document.getElementById("old-class-js").innerHTML = out_result_e;
 }
 
 let user1 = new User_main("Earth", 26);
+user1.SayHi();
+
+
+// รูปเเบบการเขียน js แบบใหม่ 
+
+class User_main_2{
+    constructor(name, age){
+        this.name = name,
+        this.age = age
+    }
+    SayHi(){
+        let out_n_result = "Hello ="+this.name+" my age is = "+this.age;
+        document.getElementById("new-class-js").innerHTML = out_n_result;
+    }
+}
+
+let user2 = new User_main_2("Earth", 26);
 user2.SayHi();
 
+//************** Inheritance (การสืบทอดคุณสมบัติ) ************** //
+
+
+class Admin{
+    constructor(){
+        console.log("Admin constructor is called.")
+    }
+    isPermission(){
+        document.getElementById("Inheritance-admin").innerHTML = "You are login as Admin."
+    } 
+}
+
+// การสืบทอดของข้อมูลระหว่าง class จะทำการใช้ extends 
+class User extends Admin{ // การเขียนลักษณะนี้จะทำให้ Class user ไปดึงคุณสมบัติของ class Admin
+    constructor(name_user, age_user){
+        super(); // operator super จะทำการเรียกใช้คำสั่งของ class เเม่ที่เราทำการ extends เข้ามา (คือ class Admin)
+        this.name_user = name_user, // ค่าตัวนี้เป็นคุณสมบัติใน class ของ user อยู่เเล้ว
+        this.age_user = age_user // ค่าตัวนี้เป็นคุณสมบัติใน class ของ user อยู่เเล้ว
+    }
+    welcomeBack(){
+        let result_inheritance = "Welcome back mr "+this.name_user+" now you are "+this.age_user;
+        document.getElementById("Inheritance").innerHTML = result_inheritance;
+    }
+
+}
+
+let show_result_con = new User("Sorrakrit", 26);
+show_result_con.isPermission(); // สังเกตุว่าการใช้ super เรียก คุณสมบัติระหว่าง class Admin เเละ class User เป็นผลให้ เราสามารถใช้งาน method ใน class Admin ได้
+show_result_con.welcomeBack();
 
 
 
+
+//************** ************** ************** //
+//************** JS for font-end ************** //
+//************** ************** ************** //
+
+// This method has coding in alert_js.js with alert_tag.html
+// alert("This page test for alert method from js."); 
+
+//************** Array ************** //
+// Array = คือการเก็บข้อมูลหลายค่าไว้ในตัวแปร 1 ตัว
+
+let array_aa = [1,2,3,4,5,6,7,8,9,10,11,12,19];
+
+class Math_sum{
+    constructor(array_in){
+        console.log("math function is running");
+        this.array_in = array_in;
+    }
+
+    sum_loop(){
+        let array_in = this.array_in;
+        let sum_array = 0;
+        for (let i = 0; i < array_in.length; i++){
+            sum_array += array_in[i];
+        }
+
+        return sum_array;
+    }
+
+    avg_func(){
+        let summation_array = this.sum_loop();
+        let count_e = this.array_in.length;
+        let average = summation_array / count_e;
+        let average_deci = average.toFixed(3);
+
+        return average_deci;
+    }
+}
+
+let result_array_forLoop = new Math_sum(array_aa);
+let sum_result = `this is calulate by math class with sum function = ${result_array_forLoop.sum_loop()}`;
+let avg_result = `this is calulate by math class with avg function = ${result_array_forLoop.avg_func()}`;
+document.getElementById("summation_loop").innerHTML= sum_result;
+document.getElementById("avg_class_method").innerHTML = avg_result;
+
+
+//************** Ternary Operator **************//
+
+// normal if else without ternary operator. 
+let avg_resilt_2 = result_array_forLoop.avg_func(); 
+let show_the_object;
+
+if (avg_resilt_2 > 8){
+    show_the_object = "it more than 8";
+    document.getElementById("if-else-Operator").innerHTML = show_the_object;
+}else{
+    show_the_object = "it less than 8";
+    document.getElementById("if-else-Operator").innerHTML = show_the_object;
+}
+
+// ternary operator. 
+
+let show_the_object_2;
+show_the_object_2 = avg_resilt_2 >7 ? "it more than 7" : "it less than 7"; 
+document.getElementById("Ternary-Operator").innerHTML = show_the_object_2;
+
+
+//************** Switch Case Operator **************//
+// Switch คล้ายๆ กับ if เพียงเเต่จำกัดช่องทางไว้เพียงเเค่ 1 element; 
+
+switch (true){
+    case (avg_resilt_2 < 0):
+        // console.log(avg_resilt_2);
+        document.getElementById("switch-case").innerHTML = "your average below 0";
+        break;
+    case (avg_resilt_2 >= 0 && avg_resilt_2 <= 10):
+        // console.log(avg_resilt_2);
+        document.getElementById("switch-case").innerHTML = "your are in average";
+        break;
+    case (avg_resilt_2 > 10):
+        // console.log(avg_resilt_2);
+        document.getElementById("switch-case").innerHTML = "you are more than average";
+        break;
+}
+
+//************** Do... while... operator **************//
+
+let sum_i = 0;
+let i = 0
+while(i <= 100){
+    sum_i += i;
+    i ++;
+}
+
+console.log(sum_i);
+document.getElementById("while-loop").innerHTML = sum_i;
 
 
